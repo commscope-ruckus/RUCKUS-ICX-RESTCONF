@@ -1,0 +1,41 @@
+module icx-openconfig-if-poe-dev {
+
+  yang-version "1.1";
+
+  // namespace
+  namespace "http://commscope.com/ns/yang/icx/icx-openconfig-if-poe-dev";
+
+  prefix "icx-oc-if-poe-dev";
+
+  // import some basic types
+  import openconfig-interfaces { prefix oc-if; }
+  import openconfig-if-ethernet { prefix oc-eth; }
+  import openconfig-if-poe {prefix oc-poe; }
+
+  // meta
+  organization "Commscope Holding Company Inc.";
+
+  contact
+    "Commscope Support Group";
+
+  description
+    "This YANG data-model is deviation from openconfig-if-poe YANG data-model
+    for ICX Switches/Router family of products.
+    Copyright (c) 2018-2020 by Commscope Holding Company Inc.
+    All rights reserved.";
+
+
+  revision "2020-01-04" {
+    description
+    "Initial of deviation from the ICX Openconfig/if-poe Augmentation YANG model.";
+        reference "0.1.0";
+  }
+
+  /********************************************************************
+   * Deviations
+   *******************************************************************/
+   deviation "/oc-if:interfaces/oc-if:interface/oc-eth:ethernet/oc-poe:poe" {
+      deviate "not-supported";
+   }
+
+}

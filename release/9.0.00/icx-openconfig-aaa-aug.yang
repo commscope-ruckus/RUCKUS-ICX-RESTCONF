@@ -1,0 +1,183 @@
+module icx-openconfig-aaa-aug {
+
+  yang-version "1.1";
+
+  //namespace
+  namespace "http://commscope.com/ns/yang/icx/icx-openconfig-aaa-aug";
+
+  prefix "icx-openconfig-aaa-aug";
+
+    // import some basic types
+    import openconfig-system { prefix oc-sys; }
+    import openconfig-aaa-types { prefix oc-aaa-types; }
+
+  // meta
+  organization "Commscope Holding Company Inc.";
+
+  contact
+    "Commscope Support Group";
+
+  description
+    "This module defines a YANG data model that can be used to create username,
+    password and to set the privilege level to the users for ICX 
+    family products.
+    Copyright (c) 2018-2020 by Commscope Holding Company Inc.
+    All rights reserved.";
+
+  revision "2019-09-04" {
+    description
+      "Initial augment for adding privilege parameter to the
+       openconfig-aaa yang model";
+    reference "0.1.0";
+  }
+
+
+  identity ENABLE {
+      base oc-aaa-types:AAA_METHOD_TYPE;
+      description
+          "Use enable password for authentication";
+  }
+
+  identity LINE {
+      base oc-aaa-types:AAA_METHOD_TYPE;
+      description
+          "Use line (telnet) password for authentication";
+  }
+
+  identity NONE {
+      base oc-aaa-types:AAA_METHOD_TYPE;
+      description
+          "NO authentication";
+  }
+
+  identity TACACS_ONLY_ALL {
+      base oc-aaa-types:AAA_METHOD_TYPE;
+      description
+          "The group of all TACACS servers. For TACACS+ use TACACS_ALL";
+  }
+
+ 
+  /* *******************************************************************
+   * Configuration Augmentations
+   * ******************************************************************/
+
+  // identity statements
+  augment "/oc-sys:system/oc-sys:aaa/oc-sys:authentication/oc-sys:users/oc-sys:user/oc-sys:config" {
+    description
+      "Configuration data for local users";
+
+    leaf privilege{
+      type int32;
+      description
+        "The user privilege level, <0 READ-WRITE, 4 PORT-CONFIG, 5 READ-ONLY, 6 CLOUD-USER > User
+         privilege level.";
+    }
+  }
+
+  /* augment for AAA Radius parameters */
+  augment "/oc-sys:system/oc-sys:aaa/oc-sys:server-groups/oc-sys:server-group/oc-sys:servers/oc-sys:server/oc-sys:radius/oc-sys:config" {
+      description
+      "Configuration data for aaa radius server";
+      leaf dot1x{
+      type boolean;
+      description
+          "Radius server supports EAP for 802.1X.";
+      }
+      leaf mac-auth{
+      type boolean;
+      description
+          "Radius server supports MAC-Authentication.";
+      }
+      leaf no-login{
+      type boolean;
+      description
+          "Radius server does not support
+          TELNET/SSH/CONSOLE/EXEC/Web-management AAA.";
+      }
+      leaf web-auth{
+      type boolean;
+      description
+          "Radius server supports Web-Authentication.";
+      }
+      leaf port-only{
+      type boolean;
+      description
+          "Radius reserved a server only for port binding.";
+      }
+  }
+
+  augment "/oc-sys:system/oc-sys:aaa/oc-sys:authentication" {
+      container dot1x {
+          description
+              "Dot1x authentication using RADIUS";
+
+          leaf default {
+              description
+                  "The default authentication list";
+              type enumeration {
+                  enum none {
+                      description
+                          "NO authentication";
+                  }
+                  enum radius {
+                      description
+                          "Use RADIUS authentication";
+                  }
+              }
+          }  
+      }//dot1x
+  }
+
+  /* augment for AAA Authorization parameters */
+  augment "/oc-sys:system/oc-sys:aaa/oc-sys:authorization" {
+      description
+	  "Configuration data authorization coa";
+
+      container coa{
+	  description
+	      "Common definitions for authorization methods for global
+	      and per-event type";
+
+	  leaf enable{
+	      type boolean;
+	      description
+		  "Enable COA.";
+
+	  }
+
+	  container ignore {
+
+	      description
+		  "Ignore COA commands.";
+
+	      leaf disable-port{
+		  type boolean;
+		  description
+		      "Disable the port.";
+	      }
+	      leaf dm-request{
+		  type boolean;
+		  description
+		      "Disconnect message request.";
+	      }
+	      leaf flip-port{
+		  type boolean;
+		  description
+		      "Bounce the port.";
+	      }
+	      leaf modify-acl{
+		  type boolean;
+		  description
+		      "Modify access control list.";
+	      }
+	      leaf reauth-host{
+		  type boolean;
+		  description
+		      "Re-authenticate the host.";
+	      }
+	  }
+      }
+  }
+}
+
+

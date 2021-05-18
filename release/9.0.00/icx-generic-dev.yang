@@ -1,0 +1,78 @@
+module icx-generic-dev {
+    yang-version 1.1;
+    
+    //namespace
+    namespace "http://commscope.com/ns/yang/icx/icx-generic-dev";
+
+    prefix "icx-generic-dev";
+
+    import ietf-interfaces              { prefix "ietf-intf"; }
+    import openconfig-platform          { prefix "oc-platform"; }
+    import openconfig-local-routing     { prefix "oc-loc-rt"; }
+    import openconfig-system            { prefix "oc-sys"; }
+    import openconfig-interfaces        { prefix "oc-if"; }
+    import openconfig-routing-policy    { prefix "oc-rpol"; }
+
+    //meta
+    organization "Commscope Holding Company Inc.";
+
+    contact "Commscope Support Group";
+
+    description "This model defines generic deviation YANG data model that can be used for ICX platform.
+        Copyright (c) 2018-2020 by Commscope Holding Company Inc
+        All rights reserved.";
+
+    revision 2021-03-22 {
+        description "Initial of the ICX Generic Deviation YANG model.";
+        reference "0.1.0";
+    }
+    
+
+    // Module Deviations
+    deviation "/ietf-intf:interfaces" {
+        deviate "not-supported";
+    }
+    deviation "/oc-platform:components" {
+        deviate "not-supported";
+    }
+    deviation "/oc-loc-rt:local-routes" {
+        deviate "not-supported";
+    }
+    deviation "/oc-rpol:routing-policy" {
+        deviate "not-supported";
+    }
+    deviation "/oc-sys:system/oc-sys:clock" {
+        deviate "not-supported";
+    }
+    deviation "/oc-sys:system/oc-sys:ntp" {
+        deviate "not-supported";
+    }
+    deviation "/oc-sys:system/oc-sys:grpc-server" {
+        deviate "not-supported";
+    }
+    deviation "/oc-sys:system/oc-sys:ssh-server" {
+        deviate "not-supported";
+    }
+    deviation "/oc-sys:system/oc-sys:telnet-server" {
+        deviate "not-supported";
+    }
+    deviation "/oc-sys:system/oc-sys:logging" {
+        deviate "not-supported";
+    }
+    deviation "/oc-sys:system/oc-sys:memory" {
+        deviate "not-supported";
+    }
+    deviation "/oc-sys:system/oc-sys:cpus" {
+        deviate "not-supported";
+    }
+    deviation "/oc-sys:system/oc-sys:processes" {
+        deviate "not-supported";
+    }
+    deviation "/oc-sys:system/oc-sys:alarms" {
+        deviate "not-supported";
+    }
+    deviation "/oc-if:interfaces/oc-if:interface/oc-if:hold-time" {
+        deviate "not-supported";
+    }
+}
+

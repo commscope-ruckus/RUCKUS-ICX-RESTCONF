@@ -1,0 +1,69 @@
+module icx-openconfig-aaa-dev{
+
+  yang-version "1.1";
+  
+  //namespace
+  namespace "http://commscope.com/ns/yang/icx/icx-openconfig-aaa-dev";
+  
+  prefix "icx-openconfig-aaa-dev";
+
+  // import some basic types
+  import openconfig-extensions { prefix oc-ext; }
+  import openconfig-system { prefix oc-sys; }
+
+  // meta
+  organization "Commscope Holding Company Inc.";
+
+  contact
+    "Commscope Support Group";
+
+  description
+    "This module defines a YANG data model deviation for 
+     unsupported configurations and operational state data from 
+     openconfig-aaa.yang.
+    Copyright (c) 2018-2020 by Commscope Holding Company Inc.
+    All rights reserved.";
+
+  revision "2019-09-04" {
+    description
+      "initial deviation for unsupported configurations and 
+       operational state data from openconfig-aaa.yang";
+    reference "0.1.0";
+  }
+
+  /* *******************************************************************
+   * Configuration Deviations 
+   * ******************************************************************/
+
+  deviation "/oc-sys:system/oc-sys:aaa/oc-sys:authentication/oc-sys:users/oc-sys:user/oc-sys:config/oc-sys:password-hashed" {
+    deviate "not-supported";
+    }
+
+  deviation "/oc-sys:system/oc-sys:aaa/oc-sys:authentication/oc-sys:users/oc-sys:user/oc-sys:config/oc-sys:ssh-key" {
+    deviate "not-supported";
+    }
+
+  deviation "/oc-sys:system/oc-sys:aaa/oc-sys:authentication/oc-sys:users/oc-sys:user/oc-sys:config/oc-sys:role" {
+    deviate "not-supported";
+    }
+
+  deviation "/oc-sys:system/oc-sys:aaa/oc-sys:authorization/oc-sys:events" {
+    deviate "not-supported";
+    }
+
+  deviation "/oc-sys:system/oc-sys:aaa/oc-sys:accounting/oc-sys:events" {
+    deviate "not-supported";
+    }
+
+  deviation "/oc-sys:system/oc-sys:aaa/oc-sys:server-groups/oc-sys:server-group/oc-sys:servers/oc-sys:server/oc-sys:radius/oc-sys:config/oc-sys:source-address" {
+    deviate "not-supported";
+    }
+
+  deviation "/oc-sys:system/oc-sys:aaa/oc-sys:server-groups/oc-sys:server-group/oc-sys:servers/oc-sys:server/oc-sys:tacacs/oc-sys:config/oc-sys:source-address" {
+    deviate "not-supported";
+    }
+
+
+}
+
+

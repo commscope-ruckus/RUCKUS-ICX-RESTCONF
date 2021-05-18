@@ -1,0 +1,32 @@
+module icx-openconfig-if-tunnel-dev {
+    yang-version 1.1;
+    
+    //namespace
+    namespace "http://commscope.com/ns/yang/icx/icx-openconfig-if-tunnel";
+
+    prefix "icx-openconfig-if-tunnel-dev";
+    
+    import openconfig-interfaces { prefix oc-if; }
+    import openconfig-if-tunnel  { prefix oc-tun; }
+
+    //meta
+    organization "Commscope Holding Company Inc.";
+
+    contact "Commscope Support Group";
+
+    description "This model defines deviation YANG data model that can be
+        used to configure and manage a Tunnel Interface for ICX family products based on openconfig YANG model.
+        Copyright (c) 2018-2020 by Commscope Holding Company Inc
+        All rights reserved.";
+
+    revision 2019-08-06 {
+        description "Initial of the ICX Openconfig Tunnel Interface Deviation YANG model.";
+        reference "0.1.0";
+    }
+    
+
+    // Module Deviations
+    deviation "/oc-if:interfaces/oc-if:interface/oc-tun:tunnel" { 
+        deviate "not-supported";
+    }
+}

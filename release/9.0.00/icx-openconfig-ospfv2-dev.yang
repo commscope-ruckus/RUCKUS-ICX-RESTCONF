@@ -1,0 +1,88 @@
+module icx-openconfig-ospfv2-dev {
+    yang-version 1.1;
+    namespace "http://commscope.com/ns/icx-openconfig-ospfv2";
+    prefix "icx-openconfig-ospfv2-dev";
+
+    import openconfig-network-instance { prefix oc-netinst; }
+    import openconfig-ospfv2 { prefix "oc-ospfv2"; }
+
+    organization "Commscope Holding Company Inc.";
+    contact
+        "Commscope Support Group";
+
+    description "This model defines a YANG data model deviations that can be
+        used to configure and manage ospfv2 for ICX family products.
+        Copyright (c) 2018-2020 Commscope Holding Company Inc.
+        All rights reserved.";
+
+    revision 2019-08-06 {
+        description "First version of the ICX Network Instance specific YANG model.";
+        reference "0.1.0";
+    }
+    /* *******************************************************************
+     * Configuration Deviations
+     * ******************************************************************/
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:protocols/oc-netinst:protocol/oc-netinst:ospfv2/oc-netinst:global/oc-netinst:config/oc-netinst:summary-route-cost-mode"  {
+        deviate not-supported;
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:protocols/oc-netinst:protocol/oc-netinst:ospfv2/oc-netinst:global/oc-netinst:config/oc-netinst:igp-shortcuts"  {
+        deviate not-supported;
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:protocols/oc-netinst:protocol/oc-netinst:ospfv2/oc-netinst:global/oc-netinst:config/oc-netinst:log-adjacency-changes"  {
+        deviate not-supported;
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:protocols/oc-netinst:protocol/oc-netinst:ospfv2/oc-netinst:global/oc-netinst:config/oc-netinst:hide-transit-only-networks"  {
+        deviate not-supported;
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:protocols/oc-netinst:protocol/oc-netinst:ospfv2/oc-netinst:global/oc-netinst:mpls"  {
+        deviate not-supported;
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:protocols/oc-netinst:protocol/oc-netinst:ospfv2/oc-netinst:global/oc-netinst:timers"  {
+        deviate not-supported;
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:protocols/oc-netinst:protocol/oc-netinst:ospfv2/oc-netinst:global/oc-netinst:inter-area-propagation-policies"  {
+        deviate not-supported;
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:protocols/oc-netinst:protocol/oc-netinst:ospfv2/oc-netinst:global/oc-netinst:state"  {
+        deviate not-supported;
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:protocols/oc-netinst:protocol/oc-netinst:ospfv2/oc-netinst:global/oc-netinst:graceful-restart"  {
+        deviate not-supported;
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:protocols/oc-netinst:protocol/oc-netinst:ospfv2/oc-netinst:areas/oc-netinst:area/oc-netinst:state"  {
+        deviate not-supported;
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:protocols/oc-netinst:protocol/oc-netinst:ospfv2/oc-netinst:areas/oc-netinst:area/oc-netinst:mpls"  {
+        deviate not-supported;
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:protocols/oc-netinst:protocol/oc-netinst:ospfv2/oc-netinst:areas/oc-netinst:area/oc-netinst:lsdb" {
+        deviate not-supported;
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:protocols/oc-netinst:protocol/oc-netinst:ospfv2/oc-netinst:areas/oc-netinst:area/oc-netinst:virtual-links" {
+        deviate not-supported;
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:protocols/oc-netinst:protocol/oc-netinst:ospfv2/oc-netinst:areas/oc-netinst:area/oc-netinst:interfaces/oc-netinst:interface/oc-netinst:config/oc-netinst:multi-area-adjacency-primary"  {
+        deviate not-supported;
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:protocols/oc-netinst:protocol/oc-netinst:ospfv2/oc-netinst:areas/oc-netinst:area/oc-netinst:interfaces/oc-netinst:interface/oc-netinst:config/oc-netinst:authentication-type"  {
+        deviate not-supported;
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:protocols/oc-netinst:protocol/oc-netinst:ospfv2/oc-netinst:areas/oc-netinst:area/oc-netinst:interfaces/oc-netinst:interface/oc-netinst:config/oc-netinst:hide-network"  {
+        deviate not-supported;
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:protocols/oc-netinst:protocol/oc-netinst:ospfv2/oc-netinst:areas/oc-netinst:area/oc-netinst:interfaces/oc-netinst:interface/oc-netinst:timers"  {
+        deviate not-supported;
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:protocols/oc-netinst:protocol/oc-netinst:ospfv2/oc-netinst:areas/oc-netinst:area/oc-netinst:interfaces/oc-netinst:interface/oc-netinst:neighbors"  {
+        deviate not-supported;
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:protocols/oc-netinst:protocol/oc-netinst:ospfv2/oc-netinst:areas/oc-netinst:area/oc-netinst:interfaces/oc-netinst:interface/oc-netinst:mpls"  {
+        deviate not-supported;
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:protocols/oc-netinst:protocol/oc-netinst:ospfv2/oc-netinst:areas/oc-netinst:area/oc-netinst:interfaces/oc-netinst:interface/oc-netinst:state"  {
+        deviate not-supported;
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:protocols/oc-netinst:protocol/oc-netinst:ospfv2/oc-netinst:areas/oc-netinst:area/oc-netinst:interfaces/oc-netinst:interface/oc-netinst:lsa-filter" {
+        deviate not-supported;
+    }
+}

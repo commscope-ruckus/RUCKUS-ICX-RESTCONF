@@ -1,0 +1,86 @@
+module icx-openconfig-if-ethernet-aug {
+
+  yang-version "1.1";
+
+  // namespace
+  namespace "http://commscope.com/ns/yang/icx/icx-openconfig-if-ethernet-aug";
+
+  prefix "icx-oc-eth-aug";
+
+  // import some basic types
+  import openconfig-interfaces { prefix oc-if; }
+  import openconfig-if-ethernet {prefix oc-eth; }
+
+  // meta
+  organization "Commscope Holding Company Inc.";
+
+  contact
+    "Commscope Support Group";
+
+  description
+    "This YANG data-model is augmentation of openconfig-if-ethernet YANG, to include
+    clock configuration for a given physical interface/port for ICX Switches/Router
+    family of products.
+    Copyright (c) 2018-2020 by Commscope Holding Company Inc.
+    All rights reserved.";
+
+
+  revision "2019-11-12" {
+    description
+    "Initial version of the ICX Openconfig/if-ethernet Augmentation YANG model.";
+        reference "0.1.0";
+  }
+
+  // typedef statements
+  typedef clock-mode {
+         type enumeration {
+             enum none   { value 0; }
+             enum auto   { value 1; }
+             enum master { value 2; }
+             enum slave  { value 3; }
+         }
+         default auto;
+         description "Clock modes that can be configured on a physical Ethernet Interface.";
+  }
+
+  // grouping statements
+
+  // augment statements
+
+  augment "/oc-if:interfaces/oc-if:interface/oc-eth:ethernet/oc-eth:config" {
+    description "Adds additional Ethernet-specific configuration to
+    interfaces model";
+
+    leaf ethernet-clock {
+      type clock-mode;
+      description
+        "When auto-negotiate is TRUE, this optionally sets the
+        clock mode that will be advertised to the peer.  If
+        unspecified, the interface should negotiate the clock mode
+        directly (master/slave).  When auto-negotiate is
+        FALSE, this sets the clock mode on the interface directly.";
+    }
+  }
+
+  augment "/oc-if:interfaces/oc-if:interface/oc-eth:ethernet/oc-eth:state" {
+    description "Adds additional Ethernet-specific state to
+    interfaces model";
+
+    leaf negotiated-clock {
+      type clock-mode;
+      description
+        "This shows the operational value of Ethernet clock. The value of this attribute
+        shall return configured value, except when set to auto or none. In case, clock is
+        set to auto, the value shown by this attribute shall show the clock negotiated
+        during auto-negotiation. Also, it only applies to Ethernet speed less than or equal to
+        1000Mbps";
+    }
+
+  }
+
+  // rpc statements
+
+  // notification statements
+
+}
+

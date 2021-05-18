@@ -1,0 +1,81 @@
+module icx-openconfig-acl-dev{
+
+  yang-version "1.1";
+  
+  //namespace
+  namespace "http://commscope.com/ns/yang/icx/icx-openconfig-acl-dev";
+  
+  prefix "icx-openconfig-acl-dev";
+
+  // import some basic types
+  import openconfig-packet-match { prefix oc-match; }
+  import openconfig-interfaces { prefix oc-if; }
+  import openconfig-yang-types { prefix oc-yang; }
+  import openconfig-extensions { prefix oc-ext; }
+  import openconfig-acl        {prefix oc-acl; }
+  
+  // meta
+  organization "Commscope Holding Company Inc.";
+
+  contact
+    "Commscope Support Group";
+
+  description
+    "This module defines a YANG data model deviation for 
+     unsupported configurations and operational state data from 
+     openconfig-acl.yang.
+    Copyright (c) 2018-2020 by Commscope Holding Company Inc.
+    All rights reserved.";
+
+  revision "2019-12-11" {
+    description
+      "initial deviation for unsupported configurations and 
+       operational state data from openconfig-acl.yang";
+    reference "0.1.0";
+  }
+  
+   /* *******************************************************************
+    * Configuration Deviations
+    * ******************************************************************/
+
+   /* Deviations in attributes container */
+   deviation "/oc-acl:acl/oc-acl:acl-sets/oc-acl:acl-set/oc-acl:acl-entries/oc-acl:acl-entry/oc-acl:ipv4/oc-acl:config/oc-acl:hop-limit" {
+       deviate "not-supported";
+   }
+	
+   deviation "/oc-acl:acl/oc-acl:acl-sets/oc-acl:acl-set/oc-acl:acl-entries/oc-acl:acl-entry/oc-acl:ipv4/oc-acl:state/oc-acl:hop-limit" {
+       deviate "not-supported";
+   }
+	
+   deviation "/oc-acl:acl/oc-acl:acl-sets/oc-acl:acl-set/oc-acl:acl-entries/oc-acl:acl-entry/oc-acl:ipv6/oc-acl:config/oc-acl:hop-limit" {
+       deviate "not-supported";
+   }
+	
+   deviation "/oc-acl:acl/oc-acl:acl-sets/oc-acl:acl-set/oc-acl:acl-entries/oc-acl:acl-entry/oc-acl:ipv6/oc-acl:state/oc-acl:hop-limit" {
+       deviate "not-supported";
+   }
+	
+   deviation "/oc-acl:acl/oc-acl:acl-sets/oc-acl:acl-set/oc-acl:acl-entries/oc-acl:acl-entry/oc-acl:ipv6/oc-acl:config/oc-acl:source-flow-label" {
+       deviate "not-supported";
+   }
+
+   deviation "/oc-acl:acl/oc-acl:acl-sets/oc-acl:acl-set/oc-acl:acl-entries/oc-acl:acl-entry/oc-acl:ipv6/oc-acl:config/oc-acl:destination-flow-label" {
+       deviate "not-supported";
+   }
+	
+   deviation "/oc-acl:acl/oc-acl:acl-sets/oc-acl:acl-set/oc-acl:acl-entries/oc-acl:acl-entry/oc-acl:ipv6/oc-acl:state/oc-acl:source-flow-label" {
+       deviate "not-supported";
+   }
+
+   deviation "/oc-acl:acl/oc-acl:acl-sets/oc-acl:acl-set/oc-acl:acl-entries/oc-acl:acl-entry/oc-acl:ipv6/oc-acl:state/oc-acl:destination-flow-label"    { 
+       deviate "not-supported";
+   }
+	
+   deviation "/oc-acl:acl/oc-acl:acl-sets/oc-acl:acl-set/oc-acl:acl-entries/oc-acl:acl-entry/oc-acl:transport/oc-acl:state/oc-acl:tcp-flags"    {
+       deviate "not-supported";
+   }
+
+   deviation "/oc-acl:acl/oc-acl:acl-sets/oc-acl:acl-set/oc-acl:acl-entries/oc-acl:acl-entry/oc-acl:transport/oc-acl:config/oc-acl:tcp-flags"    {
+       deviate "not-supported";
+   }
+}

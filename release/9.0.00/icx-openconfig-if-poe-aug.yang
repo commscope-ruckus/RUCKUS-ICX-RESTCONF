@@ -1,0 +1,71 @@
+module icx-openconfig-if-poe-aug {
+
+  yang-version "1.1";
+
+  // namespace
+  namespace "http://commscope.com/ns/yang/icx/icx-openconfig-if-poe-aug";
+
+  prefix "icx-oc-if-poe-aug";
+
+  // import some basic types
+  import openconfig-interfaces { prefix oc-if; }
+  import openconfig-if-ethernet { prefix oc-eth; }
+  import openconfig-if-poe {prefix oc-poe; }
+
+  // meta
+  organization "Commscope Holding Company Inc.";
+
+  contact
+    "Commscope Support Group";
+
+  description
+    "This YANG data-model is augmentation from openconfig-if-poe YANG data-model
+    for ICX Switches/Router family of products.
+    Copyright (c) 2018-2020 by Commscope Holding Company Inc.
+    All rights reserved.";
+
+
+  revision "2020-01-04" {
+    description
+    "Initial of augmentation from the ICX Openconfig/if-poe Augmentation YANG model.";
+        reference "0.1.0";
+  }
+
+  /* icx-poe-ethernet-top grouping to add presence settings for poe container */
+  grouping icx-poe-ethernet-top {
+    description
+      "Ethernet top level grouping";
+
+    container poe {
+      description
+        "Top-level container for PoE configuration and state data";
+      presence "Enables POE support";
+
+      container config {
+        description
+          "Configuration data for PoE";
+
+        uses oc-poe:poe-ethernet-config;
+      }
+
+      container state {
+        config false;
+
+        description
+          "Operational state data for PoE";
+
+        uses oc-poe:poe-ethernet-config;
+        uses oc-poe:poe-ethernet-state;
+      }
+    }
+  }
+  /********************************************************************
+   * Augmentations
+   *******************************************************************/
+   augment "/oc-if:interfaces/oc-if:interface/oc-eth:ethernet" {
+      description "Adds ICX PoE to the ethernet model.";
+
+      uses icx-poe-ethernet-top;
+   }
+
+}

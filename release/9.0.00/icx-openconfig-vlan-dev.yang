@@ -1,0 +1,69 @@
+module icx-openconfig-vlan-dev {
+    yang-version 1.1;
+    namespace "http://commscope.com/ns/yang/icx/icx-openconfig-vlan-dev";
+    prefix "icx-openconfig-vlan-dev";
+
+    import openconfig-vlan { prefix oc-vlan; }
+    import openconfig-interfaces {prefix oc-if;}
+    import openconfig-if-ethernet {prefix oc-eth;}
+    import openconfig-if-aggregate {prefix oc-lag;}
+
+    organization "Commscope Holding Company Inc.";
+    contact
+        "Commscope Support Group";
+
+    description "This model defines a YANG data model deviations that can be
+        used to configure and manage a Network Instance for Arris ICX family products.
+        Copyright (c) 2018-2020 by Arris International, Plc.
+        All rights reserved.";
+
+    revision 2019-10-24 {
+        description "First version of the ICX VLAN YANG model deviation";
+        reference "0.1.0";
+    }   
+
+    /* *******************************************************************
+     * Deviations
+     * ******************************************************************/
+	deviation "/oc-if:interfaces/oc-if:interface/oc-eth:ethernet/oc-vlan:switched-vlan/oc-vlan:config/oc-vlan:interface-mode" {
+	    deviate "not-supported";
+    }
+
+	deviation "/oc-if:interfaces/oc-if:interface/oc-eth:ethernet/oc-vlan:switched-vlan/oc-vlan:config/oc-vlan:native-vlan" {
+	    deviate "not-supported";
+    }
+
+	deviation "/oc-if:interfaces/oc-if:interface/oc-eth:ethernet/oc-vlan:switched-vlan/oc-vlan:state" {
+	    deviate "not-supported";
+    }
+
+	deviation "/oc-if:interfaces/oc-if:interface/oc-lag:aggregation/oc-vlan:switched-vlan/oc-vlan:config/oc-vlan:interface-mode" {
+	    deviate "not-supported";
+    }
+
+	deviation "/oc-if:interfaces/oc-if:interface/oc-lag:aggregation/oc-vlan:switched-vlan/oc-vlan:config/oc-vlan:native-vlan" {
+	    deviate "not-supported";
+    }
+
+	deviation "/oc-if:interfaces/oc-if:interface/oc-lag:aggregation/oc-vlan:switched-vlan/oc-vlan:state" {
+	    deviate "not-supported";
+    }
+
+	deviation "/oc-if:interfaces/oc-if:interface/oc-if:subinterfaces/oc-if:subinterface/oc-vlan:vlan" {
+	    deviate "not-supported";
+    }
+
+    deviation "/oc-if:interfaces/oc-if:interface/oc-if:config/oc-vlan:tpid" {
+	    deviate "not-supported";
+	}
+	
+    deviation "/oc-if:interfaces/oc-if:interface/oc-if:state/oc-vlan:tpid" {
+	    deviate "not-supported";
+	}  
+
+    deviation "/oc-if:interfaces/oc-if:interface/oc-vlan:routed-vlan/oc-vlan:state" {
+        deviate "not-supported";
+    }
+
+}
+

@@ -1,0 +1,130 @@
+module icx-openconfig-spanning-tree-dev {
+    yang-version 1.1;
+    namespace "http://commscope.com/ns/yang/icx/icx-openconfig-spanning-tree-dev";
+    prefix "icx-openconfig-spanning-tree-dev";
+
+    import openconfig-interfaces {prefix oc-if;}
+    import openconfig-spanning-tree {prefix oc-stp;}
+
+    organization "Commscope Holding Company Inc.";
+    contact "Commscope Support Group";
+
+    description "This model defines a YANG data model deviations that can be
+        used to configure and manage a Network Instance for Arris ICX family products.
+        Copyright (c) 2018-2020 by Arris International, Plc.
+        All rights reserved.";
+
+    revision 2019-10-24 {
+        description "First version of the ICX VLAN YANG model deviation";
+        reference "0.1.0";
+    }   
+
+    /********************************************************************
+     * Deviations
+     *******************************************************************/
+
+    /* STP */ 
+    deviation "/oc-stp:stp/oc-stp:global" {
+        deviate "not-supported";
+    }
+
+    /* Global RSTP */
+    deviation "/oc-stp:stp/oc-stp:rstp" {
+        deviate "not-supported";
+    }
+
+    /* Global MSTP */
+    deviation "/oc-stp:stp/oc-stp:mstp" {
+        deviate "not-supported";
+    }
+
+    /* Hello time of PVRST */
+    deviation "/oc-stp:stp/oc-stp:rapid-pvst/oc-stp:vlan/oc-stp:config/oc-stp:hello-time" {
+        deviate "not-supported";
+    }
+    deviation "/oc-stp:stp/oc-stp:rapid-pvst/oc-stp:vlan/oc-stp:state/oc-stp:hello-time" {
+        deviate "not-supported";
+    }
+
+    /* Max age time of PVRST */
+    deviation "/oc-stp:stp/oc-stp:rapid-pvst/oc-stp:vlan/oc-stp:config/oc-stp:max-age" {
+        deviate "not-supported";
+    }
+    deviation "/oc-stp:stp/oc-stp:rapid-pvst/oc-stp:vlan/oc-stp:state/oc-stp:max-age" {
+        deviate "not-supported";
+    }
+
+    /* Forwarding Delay of PVRST */
+    deviation "/oc-stp:stp/oc-stp:rapid-pvst/oc-stp:vlan/oc-stp:config/oc-stp:forwarding-delay" {
+        deviate "not-supported";
+    }
+    deviation "/oc-stp:stp/oc-stp:rapid-pvst/oc-stp:vlan/oc-stp:state/oc-stp:forwarding-delay" {
+        deviate "not-supported";
+    }
+
+    /* Hold Count of PVRST */
+    deviation "/oc-stp:stp/oc-stp:rapid-pvst/oc-stp:vlan/oc-stp:config/oc-stp:hold-count" {
+        deviate "not-supported";
+    }
+    deviation "/oc-stp:stp/oc-stp:rapid-pvst/oc-stp:vlan/oc-stp:state/oc-stp:hold-count" {
+        deviate "not-supported";
+    }
+
+    /* Bridge Priority of PVRST */
+    deviation "/oc-stp:stp/oc-stp:rapid-pvst/oc-stp:vlan/oc-stp:config/oc-stp:bridge-priority" {
+        deviate "not-supported";
+    }
+    deviation "/oc-stp:stp/oc-stp:rapid-pvst/oc-stp:vlan/oc-stp:state/oc-stp:bridge-priority" {
+        deviate "not-supported";
+    }
+
+    /* Bridge State Data that is not configurable through yang */
+    deviation "/oc-stp:stp/oc-stp:rapid-pvst/oc-stp:vlan/oc-stp:state/oc-stp:bridge-address" {
+        deviate "not-supported";
+    }
+    deviation "/oc-stp:stp/oc-stp:rapid-pvst/oc-stp:vlan/oc-stp:state/oc-stp:designated-root-priority" {
+        deviate "not-supported";
+    }
+    deviation "/oc-stp:stp/oc-stp:rapid-pvst/oc-stp:vlan/oc-stp:state/oc-stp:designated-root-address" {
+        deviate "not-supported";
+    }
+    deviation "/oc-stp:stp/oc-stp:rapid-pvst/oc-stp:vlan/oc-stp:state/oc-stp:root-port" {
+        deviate "not-supported";
+    }
+    deviation "/oc-stp:stp/oc-stp:rapid-pvst/oc-stp:vlan/oc-stp:state/oc-stp:root-cost" {
+        deviate "not-supported";
+    }
+    deviation "/oc-stp:stp/oc-stp:rapid-pvst/oc-stp:vlan/oc-stp:state/oc-stp:hold-time" {
+        deviate "not-supported";
+    }
+    deviation "/oc-stp:stp/oc-stp:rapid-pvst/oc-stp:vlan/oc-stp:state/oc-stp:topology-changes" {
+        deviate "not-supported";
+    }
+    deviation "/oc-stp:stp/oc-stp:rapid-pvst/oc-stp:vlan/oc-stp:state/oc-stp:time-since-topology-change" {
+        deviate "not-supported";
+    }
+    deviation "/oc-stp:stp/oc-stp:rapid-pvst/oc-stp:vlan/oc-stp:interfaces" {
+        deviate "not-supported";
+    }
+
+    /* STP Properties configurable per-interface */
+    deviation "/oc-stp:stp/oc-stp:interfaces/oc-stp:interface/oc-stp:config/oc-stp:link-type" {
+        deviate "not-supported";
+    }
+    deviation "/oc-stp:stp/oc-stp:interfaces/oc-stp:interface/oc-stp:state/oc-stp:link-type" {
+        deviate "not-supported";
+    }
+    deviation "/oc-stp:stp/oc-stp:interfaces/oc-stp:interface/oc-stp:config/oc-stp:guard" {
+        deviate "not-supported";
+    }
+    deviation "/oc-stp:stp/oc-stp:interfaces/oc-stp:interface/oc-stp:state/oc-stp:guard" {
+        deviate "not-supported";
+    }
+    deviation "/oc-stp:stp/oc-stp:interfaces/oc-stp:interface/oc-stp:config/oc-stp:bpdu-filter" {
+        deviate "not-supported";
+    }
+    deviation "/oc-stp:stp/oc-stp:interfaces/oc-stp:interface/oc-stp:state/oc-stp:bpdu-filter" {
+        deviate "not-supported";
+    }
+}
+

@@ -1,0 +1,41 @@
+module icx-openconfig-local-routing-dev {
+    yang-version 1.1;
+    
+    //namespace
+    namespace "http://commscope.com/ns/yang/icx/icx-openconfig-local-routing";
+
+    prefix "icx-openconfig-local-routing-dev";
+
+    import openconfig-local-routing { prefix oc-loc-rt; }
+
+    //meta
+    organization "Commscope Holding Company Inc.";
+
+    contact "Commscope Support Group";
+
+    description "This model defines deviation YANG data model that can be
+        used to configure and manage a Network Instance for ICX family products based on openconfig YANG model.
+        Copyright (c) 2018-2020 by Commscope Holding Company Inc
+        All rights reserved.";
+
+    revision 2019-08-06 {
+        description "Initial of the ICX Openconfig/local-routing Deviation YANG model.";
+        reference "0.1.0";
+    }
+    
+
+    // Module Deviations
+
+    deviation "/oc-loc-rt:local-routes/oc-loc-rt:state" {
+        deviate "not-supported";
+    }
+    deviation "/oc-loc-rt:local-routes/oc-loc-rt:static-routes/oc-loc-rt:static/oc-loc-rt:state" {
+        deviate "not-supported";
+    }
+    deviation "/oc-loc-rt:local-routes/oc-loc-rt:static-routes/oc-loc-rt:static/oc-loc-rt:next-hops/oc-loc-rt:next-hop/oc-loc-rt:config/oc-loc-rt:recurse" {
+        deviate "not-supported";
+    }
+    deviation "/oc-loc-rt:local-routes/oc-loc-rt:static-routes/oc-loc-rt:static/oc-loc-rt:next-hops/oc-loc-rt:next-hop/oc-loc-rt:state" {
+        deviate "not-supported";
+    }
+}

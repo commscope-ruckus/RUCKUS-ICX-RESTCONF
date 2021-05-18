@@ -1,0 +1,97 @@
+module icx-openconfig-network-instance-dev {
+    yang-version 1.1;
+    
+    //namespace
+    namespace "http://commscope.com/ns/yang/icx/icx-openconfig-network-instance";
+
+    prefix "icx-openconfig-network-instance-dev";
+
+    import openconfig-network-instance  { prefix "oc-netinst"; }
+    import openconfig-bgp               { prefix "oc-bgp"; }
+    //meta
+    organization "Commscope Holding Company Inc.";
+
+    contact "Commscope Support Group";
+
+    description "This model defines deviation YANG data model that can be
+        used to configure and manage a Network Instance for ICX family products based on openconfig YANG model.
+        Copyright (c) 2018-2020 by Commscope Holding Company Inc
+        All rights reserved.";
+
+    revision 2019-08-06 {
+        description "Initial of the ICX Openconfig/Network Instance Deviation YANG model.";
+        reference "0.1.0";
+    }
+    
+
+    // Module Deviations
+    deviation "/oc-bgp:bgp/oc-bgp:global/oc-bgp:config/oc-bgp:as" {
+        deviate "replace" {
+            mandatory false;
+        }
+    }
+    deviation "/oc-bgp:bgp" {
+        deviate "not-supported";
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:fdb" {
+        deviate "not-supported";
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:encapsulation" {
+        deviate "not-supported";
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:tables" {
+        deviate "not-supported";
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:mpls" {
+        deviate "not-supported";
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:segment-routing" {
+        deviate "not-supported";
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:afts" {
+        deviate "not-supported";
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:policy-forwarding" {
+        deviate "not-supported";
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:inter-instance-policies" {
+        deviate "not-supported";
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:table-connections" {
+        deviate "not-supported";
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:route-limits" {
+        deviate "not-supported";
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:connection-points" {
+        deviate "not-supported";
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:protocols/oc-netinst:protocol/oc-netinst:bgp" {
+        deviate "not-supported";
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:protocols/oc-netinst:protocol/oc-netinst:isis" {
+        deviate "not-supported";
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:protocols/oc-netinst:protocol/oc-netinst:pim" {
+        deviate "not-supported";
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:protocols/oc-netinst:protocol/oc-netinst:igmp" {
+        deviate "not-supported";
+    }
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:protocols/oc-netinst:protocol/oc-netinst:local-aggregates" {
+        deviate "not-supported";
+    }
+
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:vlans/oc-netinst:vlan/oc-netinst:members"  {
+        deviate "not-supported";
+    }
+
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:vlans/oc-netinst:vlan/oc-netinst:config/oc-netinst:status" {
+        deviate "not-supported";
+    }
+
+    deviation "/oc-netinst:network-instances/oc-netinst:network-instance/oc-netinst:vlans/oc-netinst:vlan/oc-netinst:state/oc-netinst:status" {
+        deviate "not-supported";
+    }
+}
+

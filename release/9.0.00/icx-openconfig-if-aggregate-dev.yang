@@ -1,0 +1,41 @@
+module icx-openconfig-if-aggregate-dev {
+    yang-version 1.1;
+    namespace "http://commscope.com/ns/yang/icx/icx-openconfig-if-aggregate-dev";
+    prefix "icx-openconfig-if-aggregate-dev";
+
+    import openconfig-interfaces {prefix oc-if;}
+    import openconfig-if-aggregate {prefix oc-lag;}
+
+    organization "Commscope Holding Company Inc.";
+    contact "Commscope Support Group";
+
+    description "This model defines a YANG data model deviations that can be
+        used to configure and manage a Network Instance for Arris ICX family products.
+        Copyright (c) 2018-2020 by Arris International, Plc.
+        All rights reserved.";
+
+    revision 2019-10-24 {
+        description "First version of the ICX VLAN YANG model deviation";
+        reference "0.1.0";
+    }
+
+	/********************************************************************
+     * Deviations
+     *******************************************************************/
+
+    /* Lag Min Links Configured value */
+    deviation "/oc-if:interfaces/oc-if:interface/oc-lag:aggregation/oc-lag:config/oc-lag:min-links" {
+        deviate "not-supported";
+    }
+
+    /* Lag Min Links Operational value */
+    deviation "/oc-if:interfaces/oc-if:interface/oc-lag:aggregation/oc-lag:state/oc-lag:min-links" {
+        deviate "not-supported";
+    }
+
+    /* Lag Speed Operational value */
+    deviation "/oc-if:interfaces/oc-if:interface/oc-lag:aggregation/oc-lag:state/oc-lag:lag-speed" {
+        deviate "not-supported";
+    }
+}
+
