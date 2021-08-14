@@ -55,6 +55,10 @@ module icx-openconfig-aaa-dev{
     deviate "not-supported";
     }
 
+  deviation "/oc-sys:system/oc-sys:aaa/oc-sys:server-groups/oc-sys:server-group/oc-sys:servers/oc-sys:server/oc-sys:config/oc-sys:timeout" {
+    deviate "not-supported";
+    }
+
   deviation "/oc-sys:system/oc-sys:aaa/oc-sys:server-groups/oc-sys:server-group/oc-sys:servers/oc-sys:server/oc-sys:radius/oc-sys:config/oc-sys:source-address" {
     deviate "not-supported";
     }
