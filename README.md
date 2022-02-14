@@ -1,2 +1,2 @@
 # commscope.icx.restconf
-ICX Platform RESTCONF YANG Models and postman collection
+ICX Platform RESTCONF YANG Models, postman collection and python scripts
